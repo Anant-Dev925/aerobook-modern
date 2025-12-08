@@ -29,14 +29,15 @@ export default function Landing() {
       </motion.div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=2000&q=80" 
             alt="Private Jet Interior" 
             className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/20 md:from-background/90 md:via-background/50 md:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent md:hidden" />
         </div>
         
         <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -44,26 +45,26 @@ export default function Landing() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            className="max-w-2xl pt-10 md:pt-0"
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-foreground">
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6 text-foreground leading-tight">
               Elevate Your <br />
               <span className="text-primary/80">Journey</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-md md:max-w-none">
               Experience the pinnacle of private aviation. Personalized service, 
               unmatched comfort, and global reach for the discerning traveler.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-full px-8 text-lg h-14">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild size="lg" className="rounded-full px-8 text-lg h-14 w-full sm:w-auto">
                 <Link to="/fleet">Explore Fleet</Link>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 bg-background/50 backdrop-blur-sm">
+              <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 bg-background/50 backdrop-blur-sm w-full sm:w-auto">
                 <a href="#contact">Contact Concierge</a>
               </Button>
             </div>
             
-            <div className="mt-12 flex gap-8 text-sm font-medium text-muted-foreground">
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Shield className="w-5 h-5 text-primary" />
                 <span>Safety Certified</span>

@@ -3,6 +3,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
+import { ModeToggle } from "./mode-toggle";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,8 +29,8 @@ export function Navbar() {
             </Link>
           </div>
           
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
                 item.type === "link" ? (
                   <Link
@@ -50,29 +51,30 @@ export function Navbar() {
                 )
               ))}
             </div>
+            <div className="flex items-center gap-4">
+              <ModeToggle />
+              <Button asChild variant="default" className="rounded-full px-6">
+                <a href="/#book">Book Flight</a>
+              </Button>
+            </div>
           </div>
 
-          <div className="hidden md:block">
-            <Button asChild variant="default" className="rounded-full px-6">
-              <a href="/#book">Book Flight</a>
-            </Button>
-          </div>
-
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <ModeToggle />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent>
-                <div className="flex flex-col space-y-4 mt-8">
+              <SheetContent className="pt-16 px-6">
+                <div className="flex flex-col space-y-6 mt-4">
                   {navItems.map((item) => (
                     item.type === "link" ? (
                       <Link
                         key={item.name}
                         to={item.href}
-                        className="text-lg font-medium"
+                        className="text-xl font-medium py-2 border-b border-border/50"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
@@ -81,14 +83,14 @@ export function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="text-lg font-medium"
+                        className="text-xl font-medium py-2 border-b border-border/50"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
                       </a>
                     )
                   ))}
-                  <Button asChild className="w-full mt-4">
+                  <Button asChild className="w-full mt-4 h-12 text-lg">
                     <a href="/#book" onClick={() => setIsOpen(false)}>Book Flight</a>
                   </Button>
                 </div>
