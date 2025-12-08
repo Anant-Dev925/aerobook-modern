@@ -8,10 +8,11 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Services", href: "#services" },
-    { name: "Destinations", href: "#destinations" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "About", href: "#about" },
+    { name: "Fleet", href: "/fleet", type: "link" },
+    { name: "Services", href: "/#services", type: "anchor" },
+    { name: "Destinations", href: "/#destinations", type: "anchor" },
+    { name: "Testimonials", href: "/#testimonials", type: "anchor" },
+    { name: "About", href: "/#about", type: "anchor" },
   ];
 
   return (
@@ -30,20 +31,30 @@ export function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.name}
-                </a>
+                item.type === "link" ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
             </div>
           </div>
 
           <div className="hidden md:block">
             <Button asChild variant="default" className="rounded-full px-6">
-              <a href="#book">Book Flight</a>
+              <a href="/#book">Book Flight</a>
             </Button>
           </div>
 
@@ -57,17 +68,28 @@ export function Navbar() {
               <SheetContent>
                 <div className="flex flex-col space-y-4 mt-8">
                   {navItems.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="text-lg font-medium"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </a>
+                    item.type === "link" ? (
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        className="text-lg font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="text-lg font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )
                   ))}
                   <Button asChild className="w-full mt-4">
-                    <a href="#book" onClick={() => setIsOpen(false)}>Book Flight</a>
+                    <a href="/#book" onClick={() => setIsOpen(false)}>Book Flight</a>
                   </Button>
                 </div>
               </SheetContent>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Globe, MapPin, Plane, Shield, Star, Users } from "lucide-react";
+import { Link } from "react-router";
 
 export default function Landing() {
   const fadeIn = {
@@ -45,8 +46,8 @@ export default function Landing() {
               unmatched comfort, and global reach for the discerning traveler.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="rounded-full px-8 text-lg h-14">
-                Explore Fleet
+              <Button asChild size="lg" className="rounded-full px-8 text-lg h-14">
+                <Link to="/fleet">Explore Fleet</Link>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 bg-background/50 backdrop-blur-sm">
                 Contact Concierge
