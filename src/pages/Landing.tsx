@@ -11,7 +11,7 @@ import { Link } from "react-router";
 export default function Landing() {
   const { scrollYProgress } = useScroll();
   const jetY = useTransform(scrollYProgress, [0, 1], ["5vh", "90vh"]);
-  
+
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-x-hidden">
       <Navbar />
@@ -59,7 +59,7 @@ export default function Landing() {
                 <Link to="/fleet">Explore Fleet</Link>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full px-8 text-lg h-14 bg-background/50 backdrop-blur-sm">
-                Contact Concierge
+                <a href="#contact">Contact Concierge</a>
               </Button>
             </div>
             
@@ -117,7 +117,7 @@ export default function Landing() {
       </section>
 
       {/* About Us Section */}
-      <section className="py-24 bg-background container mx-auto px-4">
+      <section id="about" className="py-24 bg-background container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -241,7 +241,7 @@ export default function Landing() {
       </section>
 
       {/* Why Us Section */}
-      <section id="about" className="py-32 bg-primary text-primary-foreground overflow-hidden">
+      <section className="py-32 bg-primary text-primary-foreground overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -417,7 +417,7 @@ export default function Landing() {
             Contact our team today to plan your next journey. Experience the freedom of private aviation.
           </p>
           <Button size="lg" variant="secondary" className="rounded-full px-8 h-14 text-lg">
-            Get a Quote
+            <a href="#book">Get a Quote</a>
           </Button>
         </div>
       </section>
