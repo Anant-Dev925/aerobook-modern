@@ -67,7 +67,7 @@ export function Navbar() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="pt-16 px-6">
+              <SheetContent className="pt-24 px-8">
                 <div className="flex flex-col space-y-6 mt-4">
                   {navItems.map((item) => (
                     item.type === "link" ? (

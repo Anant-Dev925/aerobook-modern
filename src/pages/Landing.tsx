@@ -287,9 +287,9 @@ export default function Landing() {
             <div className="relative order-1 lg:order-2">
               <div className="absolute -inset-4 border-2 border-primary-foreground/20 rounded-3xl transform rotate-3" />
               <img 
-                src="https://images.unsplash.com/photo-1583413230540-ddf90681a8f8?auto=format&fit=crop&w=1000&q=80" 
+                src="https://images.unsplash.com/photo-1559087867-ce4c91325525?auto=format&fit=crop&w=1000&q=80" 
                 alt="Luxury Service" 
-                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover z-10"
+                className="relative rounded-2xl shadow-2xl w-full aspect-video object-cover z-10 bg-muted"
               />
             </div>
           </div>
