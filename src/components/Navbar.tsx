@@ -4,11 +4,73 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
 import { ModeToggle } from "./mode-toggle";
+import { useAuth } from "@/hooks/use-auth";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const navItems = [
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+            <div className="flex items-center gap-4">
+              <ModeToggle />
+              <Button asChild variant="default" className="rounded-full px-6">
+                <a href="/#book">Book Flight</a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="md:hidden flex items-center gap-4">
+=======
+            <div className="flex items-center gap-4">
+              <ModeToggle />
+              {isAuthenticated ? (
+                <Button asChild variant="ghost">
+                  <Link to="/dashboard">Dashboard</Link>
+                </Button>
+              ) : (
+                <Button asChild variant="ghost">
+                  <Link to="/auth">Login</Link>
+                </Button>
+              )}
+              <Button asChild variant="default" className="rounded-full px-6">
+                <a href="/#book">Book Flight</a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="md:hidden flex items-center gap-4">
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+                  <Button asChild className="w-full mt-4 h-12 text-lg">
+                    <a href="/#book" onClick={() => setIsOpen(false)}>Book Flight</a>
+                  </Button>
+                </div>
+              </SheetContent>
+=======
+                  {isAuthenticated ? (
+                    <Link
+                      to="/dashboard"
+                      className="text-xl font-medium py-2 border-b border-border/50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/auth"
+                      className="text-xl font-medium py-2 border-b border-border/50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Login
+                    </Link>
+                  )}
+                  <Button asChild className="w-full mt-4 h-12 text-lg">
+                    <a href="/#book" onClick={() => setIsOpen(false)}>Book Flight</a>
+                  </Button>
+                </div>
+              </SheetContent>
     { name: "Fleet", href: "/fleet", type: "link" },
     { name: "Services", href: "/#services", type: "anchor" },
     { name: "Destinations", href: "/#destinations", type: "anchor" },
