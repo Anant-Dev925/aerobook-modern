@@ -24,7 +24,7 @@ const fleetPreview = [
   {
     name: "Challenger 350",
     category: "Midsize Jet",
-    image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1583413230540-ddf90681a8f8?auto=format&fit=crop&w=800&q=80",
     passengers: "9-10",
     speed: "470 kts",
     range: "3,200 nm"
