@@ -74,11 +74,11 @@ export function FleetPreview() {
           align: "start",
           loop: true,
         }}
-        className="w-full"
+        className="w-full cursor-grab active:cursor-grabbing"
       >
         <CarouselContent className="-ml-4 pb-10">
           {fleetPreview.map((aircraft, index) => (
-            <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -86,8 +86,8 @@ export function FleetPreview() {
                 transition={{ delay: index * 0.1 }}
                 className="h-full"
               >
-                <Card className="overflow-hidden h-full flex flex-col border-border/50 hover:border-primary/50 transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 rounded-3xl">
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                <Card className="overflow-hidden h-full flex flex-col border-border/50 hover:border-primary/50 transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-card">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <img 
                       src={aircraft.image} 
                       alt={aircraft.name}
@@ -98,12 +98,15 @@ export function FleetPreview() {
                     </div>
                   </div>
                   
-                  <CardHeader>
+                  <CardHeader className="pb-2">
                     <CardTitle className="text-2xl font-serif">{aircraft.name}</CardTitle>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
+                      {aircraft.category}
+                    </p>
                   </CardHeader>
                   
                   <CardContent className="flex-grow">
-                    <div className="grid grid-cols-3 gap-2 py-4 border-t border-border/50">
+                    <div className="grid grid-cols-3 gap-2 py-4 border-t border-border/50 mt-2">
                       <div className="text-center">
                         <Users className="w-4 h-4 mx-auto mb-2 text-primary" />
                         <div className="text-sm font-bold">{aircraft.passengers}</div>
@@ -121,14 +124,6 @@ export function FleetPreview() {
                       </div>
                     </div>
                   </CardContent>
-                  
-                  <CardFooter>
-                    <Button asChild variant="ghost" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-xl">
-                      <Link to="/fleet">
-                        View Details
-                      </Link>
-                    </Button>
-                  </CardFooter>
                 </Card>
               </motion.div>
             </CarouselItem>

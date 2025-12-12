@@ -48,9 +48,9 @@ export function WhyChooseUs() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-stretch">
           {/* Left Column: Text Content */}
-          <div>
+          <div className="flex flex-col justify-center py-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -91,74 +91,21 @@ export function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Right Column: 3D Pop-out Effect */}
-          <div className="relative h-[600px] flex items-center justify-center perspective-1000 hidden lg:flex">
-             {/* The Frame Container */}
-             <motion.div 
-               initial={{ opacity: 0, scale: 0.9 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="relative w-[80%] h-[70%] bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-3xl border border-white/10 backdrop-blur-sm overflow-visible group"
-             >
-                {/* Inner Frame Decoration */}
-                <div className="absolute inset-4 border border-white/5 rounded-2xl overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=1000&q=80" 
-                    alt="Sky Background" 
-                    className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-                  />
-                </div>
-
-                {/* The Pop-out Jet */}
-                <motion.div
-                  initial={{ x: 100, y: 50, scale: 0.8, opacity: 0 }}
-                  whileInView={{ x: 40, y: -40, scale: 1.3, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-                  className="absolute -right-20 top-1/2 -translate-y-1/2 z-20 w-[140%] drop-shadow-2xl pointer-events-none"
-                >
-                  <img 
-                    src="https://pngimg.com/uploads/plane/plane_PNG101247.png" 
-                    alt="Private Jet" 
-                    className="w-full h-auto transform -rotate-12"
-                  />
-                </motion.div>
-
-                {/* Floating Elements for Depth */}
-                <motion.div 
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-10 -left-10 bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10 z-10"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                      <Check className="w-5 h-5 text-green-400" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60">Status</div>
-                      <div className="font-bold text-sm">Ready for Takeoff</div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute -bottom-5 -right-5 bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10 z-30"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
-                      <Plane className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60">Speed</div>
-                      <div className="font-bold text-sm">0.925 Mach</div>
-                    </div>
-                  </div>
-                </motion.div>
-             </motion.div>
-          </div>
+          {/* Right Column: HD Image */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative h-full min-h-[600px] rounded-3xl overflow-hidden hidden lg:block"
+          >
+             <img 
+               src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1200&q=80" 
+               alt="Private Jet Interior" 
+               className="w-full h-full object-cover"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          </motion.div>
         </div>
       </div>
     </section>
