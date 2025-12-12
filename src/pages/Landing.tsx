@@ -208,6 +208,9 @@ export default function Landing() {
             { city: "Paris", country: "France", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-2" },
             { city: "New York", country: "USA", img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
             { city: "Tokyo", country: "Japan", img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
+            { city: "Maldives", country: "Maldives", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80", className: "md:col-span-2 md:row-span-1" },
+            { city: "Swiss Alps", country: "Switzerland", img: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
+            { city: "Singapore", country: "Singapore", img: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
           ].map((dest, i) => (
             <motion.div
               key={i}

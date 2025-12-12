@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { ArrowRight, Gauge, Plane, Users } from "lucide-react";
@@ -78,7 +76,7 @@ export function FleetPreview() {
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-4">
+        <CarouselContent className="-ml-4 pb-10">
           {fleetPreview.map((aircraft, index) => (
             <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
               <motion.div
@@ -88,7 +86,7 @@ export function FleetPreview() {
                 transition={{ delay: index * 0.1 }}
                 className="h-full"
               >
-                <Card className="overflow-hidden h-full flex flex-col border-border/50 hover:border-primary/50 transition-all duration-500 group hover:shadow-lg">
+                <Card className="overflow-hidden h-full flex flex-col border-border/50 hover:border-primary/50 transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 rounded-3xl">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img 
                       src={aircraft.image} 
@@ -125,7 +123,7 @@ export function FleetPreview() {
                   </CardContent>
                   
                   <CardFooter>
-                    <Button asChild variant="ghost" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Button asChild variant="ghost" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors rounded-xl">
                       <Link to="/fleet">
                         View Details
                       </Link>
@@ -136,10 +134,6 @@ export function FleetPreview() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="flex justify-end gap-2 mt-8">
-          <CarouselPrevious className="static translate-y-0" />
-          <CarouselNext className="static translate-y-0" />
-        </div>
       </Carousel>
 
       <div className="mt-8 md:hidden">
