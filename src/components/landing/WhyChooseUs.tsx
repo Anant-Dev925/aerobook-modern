@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Clock, Check, Award, HeartHandshake, Gem } from "lucide-react";
+import { Shield, Clock, Check, Award, HeartHandshake, Gem, Globe } from "lucide-react";
 
 const features = [
   {
@@ -25,7 +25,7 @@ const features = [
   {
     title: "Global Network",
     desc: "With access to over 50,000 aircraft and 3,000 airports worldwide, we can get you closer to your final destination than any commercial airline ever could.",
-    icon: GlobeIcon
+    icon: Globe
   },
   {
     title: "Personalized Service",
@@ -33,27 +33,6 @@ const features = [
     icon: HeartHandshake
   }
 ];
-
-function GlobeIcon(props: any) {
-    return (
-        <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" x2="22" y1="12" y2="12" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-    )
-}
 
 export function WhyChooseUs() {
   return (
@@ -111,25 +90,42 @@ export function WhyChooseUs() {
             </div>
           </div>
 
-          <div className="grid gap-10 pt-10 lg:pt-0">
-             {features.slice(3, 6).map((item, i) => (
-                <motion.div 
-                  key={i} 
-                  className="flex gap-6"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + (i * 0.1) }}
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-serif font-bold mb-3">{item.title}</h3>
-                    <p className="text-white/60 leading-relaxed">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+          <div className="relative">
+             {/* 3D Jet Effect */}
+             <motion.div
+                initial={{ opacity: 0, x: 100, y: 50 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="absolute -right-20 top-1/2 -translate-y-1/2 z-20 w-[150%] pointer-events-none hidden lg:block"
+             >
+                <img 
+                  src="https://pngimg.com/uploads/plane/plane_PNG101247.png" 
+                  alt="Private Jet" 
+                  className="w-full h-auto drop-shadow-2xl"
+                />
+             </motion.div>
+
+             <div className="grid gap-10 pt-10 lg:pt-0 relative z-10">
+               {features.slice(3, 6).map((item, i) => (
+                  <motion.div 
+                    key={i} 
+                    className="flex gap-6"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + (i * 0.1) }}
+                  >
+                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-serif font-bold mb-3">{item.title}</h3>
+                      <p className="text-white/60 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+             </div>
           </div>
         </div>
       </div>

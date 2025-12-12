@@ -201,17 +201,18 @@ export default function Landing() {
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[300px]">
           {[
-            { city: "Dubai", country: "UAE", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" },
-            { city: "London", country: "UK", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" },
-            { city: "Paris", country: "France", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" },
-            { city: "New York", country: "USA", img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80" },
+            { city: "Dubai", country: "UAE", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80", className: "md:col-span-2 md:row-span-2" },
+            { city: "London", country: "UK", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
+            { city: "Paris", country: "France", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-2" },
+            { city: "New York", country: "USA", img: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
+            { city: "Tokyo", country: "Japan", img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80", className: "md:col-span-1 md:row-span-1" },
           ].map((dest, i) => (
             <motion.div
               key={i}
-              whileHover={{ y: -10 }}
-              className="relative rounded-xl overflow-hidden aspect-[3/4] group cursor-pointer shadow-lg"
+              whileHover={{ y: -5 }}
+              className={`relative rounded-2xl overflow-hidden group cursor-pointer shadow-lg ${dest.className}`}
             >
               <img 
                 src={dest.img} 
