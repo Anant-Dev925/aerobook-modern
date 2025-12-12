@@ -1,0 +1,23 @@
+[
+  {
+    "tool_code": "editFile",
+    "file_path": "src/components/landing/FleetPreview.tsx",
+    "start_line": 86,
+    "end_line": 86,
+    "replacement_text": "              <CarouselItem key={index} className=\"pl-4 basis-[85%] md:basis-1/2 lg:basis-1/2 xl:basis-1/4\">"
+  },
+  {
+    "tool_code": "editFile",
+    "file_path": "src/components/landing/WhyChooseUs.tsx",
+    "start_line": 6,
+    "end_line": 23,
+    "replacement_text": "const features = [\n  {\n    title: \"Uncompromised Safety\",\n    desc: \"Safety is our absolute priority. We adhere to the strictest safety standards in the industry, working exclusively with ARGUS and Wyvern certified operators and crew.\",\n    icon: Shield\n  },\n  {\n    title: \"24/7 Global Concierge\",\n    desc: \"Our dedicated lifestyle management team is available around the clock to handle every detail of your trip, from ground transportation to luxury accommodation.\",\n    icon: Clock\n  },\n  {\n    title: \"Transparent Pricing\",\n    desc: \"Experience true clarity with our all-inclusive pricing model. No hidden fees, no surprises—just a straightforward, competitive quote for your bespoke journey.\",\n    icon: Check\n  }\n];"
+  },
+  {
+    "tool_code": "editFile",
+    "file_path": "src/components/landing/WhyChooseUs.tsx",
+    "start_line": 87,
+    "end_line": 87,
+    "replacement_text": "            className=\"relative h-full min-h-[500px] rounded-3xl overflow-hidden lg:block\""
+  }
+]

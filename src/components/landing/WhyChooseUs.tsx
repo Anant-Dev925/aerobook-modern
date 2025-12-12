@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Clock, Check, Award, HeartHandshake, Gem, Globe, Plane } from "lucide-react";
+import { Shield, Clock, Check, Award } from "lucide-react";
 
 const features = [
   {
@@ -20,17 +20,7 @@ const features = [
   {
     title: "Curated Luxury",
     desc: "Every flight is tailored to your preferences. From gourmet catering from top restaurants to your favorite vintage wines, we ensure your cabin is exactly as you wish.",
-    icon: Gem
-  },
-  {
-    title: "Global Network",
-    desc: "With access to over 50,000 aircraft and 3,000 airports worldwide, we can get you closer to your final destination than any commercial airline ever could.",
-    icon: Globe
-  },
-  {
-    title: "Personalized Service",
-    desc: "We build lasting relationships. Your dedicated aviation advisor learns your preferences to provide a proactive, personalized service that anticipates your needs.",
-    icon: HeartHandshake
+    icon: Award
   }
 ];
 
@@ -48,7 +38,7 @@ export function WhyChooseUs() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column: Text Content */}
           <div className="flex flex-col justify-center py-8">
             <motion.div
@@ -97,10 +87,10 @@ export function WhyChooseUs() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-full min-h-[600px] rounded-3xl overflow-hidden hidden lg:block"
+            className="relative h-full min-h-[500px] rounded-3xl overflow-hidden hidden lg:block"
           >
              <img 
-               src="https://images.unsplash.com/photo-1583413230540-ddf90681a8f8?auto=format&fit=crop&w=1200&q=80" 
+               src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1200&q=80" 
                alt="Private Jet Exterior" 
                className="w-full h-full object-cover"
              />

@@ -10,6 +10,7 @@ import {
 import { motion } from "framer-motion";
 import { ArrowRight, Gauge, Plane, Users } from "lucide-react";
 import { Link } from "react-router";
+import Autoplay from "embla-carousel-autoplay";
 
 const fleetPreview = [
   {
@@ -85,11 +86,16 @@ export function FleetPreview() {
             align: "start",
             loop: true,
           }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+            }),
+          ]}
           className="w-full cursor-grab active:cursor-grabbing"
         >
           <CarouselContent className="-ml-4 pb-10">
             {fleetPreview.map((aircraft, index) => (
-              <CarouselItem key={index} className="pl-4 basis-[85%] md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+              <CarouselItem key={index} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
