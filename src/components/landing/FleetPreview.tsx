@@ -10,7 +10,6 @@ import {
 import { motion } from "framer-motion";
 import { ArrowRight, Gauge, Plane, Users } from "lucide-react";
 import { Link } from "react-router";
-import Autoplay from "embla-carousel-autoplay";
 
 const fleetPreview = [
   {
@@ -80,22 +79,17 @@ export function FleetPreview() {
         </Button>
       </div>
 
-      <div className="relative px-12">
+      <div className="relative px-8 md:px-12">
         <Carousel
           opts={{
             align: "start",
             loop: true,
           }}
-          plugins={[
-            Autoplay({
-              delay: 3000,
-            }),
-          ]}
           className="w-full cursor-grab active:cursor-grabbing"
         >
           <CarouselContent className="-ml-4 pb-10">
             {fleetPreview.map((aircraft, index) => (
-              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+              <CarouselItem key={index} className="pl-4 basis-[85%] md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -146,8 +140,8 @@ export function FleetPreview() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12 h-12 w-12 border-primary/20 hover:bg-primary hover:text-primary-foreground" />
-          <CarouselNext className="hidden md:flex -right-12 h-12 w-12 border-primary/20 hover:bg-primary hover:text-primary-foreground" />
+          <CarouselPrevious className="flex -left-6 md:-left-12 h-12 w-12 border-primary/20 hover:bg-primary hover:text-primary-foreground bg-background/80 backdrop-blur-sm" />
+          <CarouselNext className="flex -right-6 md:-right-12 h-12 w-12 border-primary/20 hover:bg-primary hover:text-primary-foreground bg-background/80 backdrop-blur-sm" />
         </Carousel>
       </div>
 
