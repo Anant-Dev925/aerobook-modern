@@ -100,8 +100,8 @@ export function WhyChooseUs() {
             className="relative h-full min-h-[600px] rounded-3xl overflow-hidden hidden lg:block"
           >
              <img 
-               src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1200&q=80" 
-               alt="Private Jet Interior" 
+               src="https://images.unsplash.com/photo-1583413230540-ddf90681a8f8?auto=format&fit=crop&w=1200&q=80" 
+               alt="Private Jet Exterior" 
                className="w-full h-full object-cover"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
