@@ -1,13 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { ArrowRight, Gauge, Plane, Users } from "lucide-react";
 import { Link } from "react-router";
+import Autoplay from "embla-carousel-autoplay";
 
 const fleetPreview = [
   {
@@ -21,7 +24,7 @@ const fleetPreview = [
   {
     name: "Challenger 350",
     category: "Midsize Jet",
-    image: "https://images.unsplash.com/photo-1583413230540-ddf90681a8f8?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=800&q=80",
     passengers: "9-10",
     speed: "470 kts",
     range: "3,200 nm"
@@ -29,7 +32,7 @@ const fleetPreview = [
   {
     name: "Global 7500",
     category: "Heavy Jet",
-    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
     passengers: "14-19",
     speed: "530 kts",
     range: "7,700 nm"
@@ -37,7 +40,7 @@ const fleetPreview = [
   {
     name: "Gulfstream G650ER",
     category: "Ultra-Long Range",
-    image: "https://images.unsplash.com/photo-1610642372651-25669d85d1be?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1483450388569-aa47dfd4d798?auto=format&fit=crop&w=800&q=80",
     passengers: "13-19",
     speed: "516 kts",
     range: "7,500 nm"
@@ -45,10 +48,18 @@ const fleetPreview = [
   {
     name: "Citation Latitude",
     category: "Midsize Jet",
-    image: "https://images.unsplash.com/photo-1569629743817-70d8db6c323b?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1520437358207-323b43b50729?auto=format&fit=crop&w=800&q=80",
     passengers: "9",
     speed: "446 kts",
     range: "2,700 nm"
+  },
+  {
+    name: "Praetor 600",
+    category: "Super Midsize",
+    image: "https://images.unsplash.com/photo-1569629743817-70d8db6c323b?auto=format&fit=crop&w=800&q=80",
+    passengers: "9-12",
+    speed: "466 kts",
+    range: "4,018 nm"
   }
 ];
 
@@ -69,67 +80,76 @@ export function FleetPreview() {
         </Button>
       </div>
 
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        className="w-full cursor-grab active:cursor-grabbing"
-      >
-        <CarouselContent className="-ml-4 pb-10">
-          {fleetPreview.map((aircraft, index) => (
-            <CarouselItem key={index} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="h-full"
-              >
-                <Card className="overflow-hidden h-full flex flex-col border-border/50 hover:border-primary/50 transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-card">
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <img 
-                      src={aircraft.image} 
-                      alt={aircraft.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider">
-                      {aircraft.category}
-                    </div>
-                  </div>
-                  
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-2xl font-serif">{aircraft.name}</CardTitle>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                      {aircraft.category}
-                    </p>
-                  </CardHeader>
-                  
-                  <CardContent className="flex-grow">
-                    <div className="grid grid-cols-3 gap-2 py-4 border-t border-border/50 mt-2">
-                      <div className="text-center">
-                        <Users className="w-4 h-4 mx-auto mb-2 text-primary" />
-                        <div className="text-sm font-bold">{aircraft.passengers}</div>
-                        <div className="text-[10px] text-muted-foreground uppercase">Pax</div>
-                      </div>
-                      <div className="text-center border-l border-border/50">
-                        <Gauge className="w-4 h-4 mx-auto mb-2 text-primary" />
-                        <div className="text-sm font-bold">{aircraft.speed}</div>
-                        <div className="text-[10px] text-muted-foreground uppercase">Speed</div>
-                      </div>
-                      <div className="text-center border-l border-border/50">
-                        <Plane className="w-4 h-4 mx-auto mb-2 text-primary" />
-                        <div className="text-sm font-bold">{aircraft.range}</div>
-                        <div className="text-[10px] text-muted-foreground uppercase">Range</div>
+      <div className="relative px-12">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+            }),
+          ]}
+          className="w-full cursor-grab active:cursor-grabbing"
+        >
+          <CarouselContent className="-ml-4 pb-10">
+            {fleetPreview.map((aircraft, index) => (
+              <CarouselItem key={index} className="pl-4 basis-full md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="h-full"
+                >
+                  <Card className="overflow-hidden h-full flex flex-col border-border/50 hover:border-primary/50 transition-all duration-500 group hover:shadow-2xl hover:-translate-y-2 rounded-3xl bg-card">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img 
+                        src={aircraft.image} 
+                        alt={aircraft.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider">
+                        {aircraft.category}
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+                    
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-xl font-serif">{aircraft.name}</CardTitle>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                        {aircraft.category}
+                      </p>
+                    </CardHeader>
+                    
+                    <CardContent className="flex-grow">
+                      <div className="grid grid-cols-3 gap-2 py-4 border-t border-border/50 mt-2">
+                        <div className="text-center">
+                          <Users className="w-4 h-4 mx-auto mb-2 text-primary" />
+                          <div className="text-sm font-bold">{aircraft.passengers}</div>
+                          <div className="text-[10px] text-muted-foreground uppercase">Pax</div>
+                        </div>
+                        <div className="text-center border-l border-border/50">
+                          <Gauge className="w-4 h-4 mx-auto mb-2 text-primary" />
+                          <div className="text-sm font-bold">{aircraft.speed}</div>
+                          <div className="text-[10px] text-muted-foreground uppercase">Speed</div>
+                        </div>
+                        <div className="text-center border-l border-border/50">
+                          <Plane className="w-4 h-4 mx-auto mb-2 text-primary" />
+                          <div className="text-sm font-bold">{aircraft.range}</div>
+                          <div className="text-[10px] text-muted-foreground uppercase">Range</div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex -left-12 h-12 w-12 border-primary/20 hover:bg-primary hover:text-primary-foreground" />
+          <CarouselNext className="hidden md:flex -right-12 h-12 w-12 border-primary/20 hover:bg-primary hover:text-primary-foreground" />
+        </Carousel>
+      </div>
 
       <div className="mt-8 md:hidden">
         <Button asChild size="lg" className="rounded-full px-8 w-full">
